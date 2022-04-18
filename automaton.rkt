@@ -22,5 +22,9 @@
                     ))
 (getResult "ola" "ola" (list (list "ola" "ola" 3) (list "ola" "ola" 1)))
 
+(define isFinal (lambda (states state)
+                  (member state state)))
+
+(isFinal (list "s1" "s2") ("s1") )
 
 (provide (all-defined-out))

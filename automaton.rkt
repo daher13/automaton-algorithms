@@ -14,17 +14,17 @@
    initial
    final))
 
-(define getResult (lambda (initial symbol transitions)
-                    (for/list ([transition transitions])
-                      (and (eq? transition-initial initial) (eq? transition-symbol symbol))
-                      ; body
-                      )
-                    ))
-(getResult "ola" "ola" (list (list "ola" "ola" 3) (list "ola" "ola" 1)))
+(define processSymbol (lambda (initial symbol transitions)
+                        (for/list ([transition transitions])
+                          (and (eq? transition-initial initial) (eq? transition-symbol symbol))
+                          ; body
+                          )
+                        ))
+(processSymbol "ola" "ola" (list (list "ola" "ola" 3) (list "ola" "ola" 1)))
 
-(define isFinal (lambda (states state)
-                  (member state state)))
+(define isFinal (lambda (state states)
+                  (if (member state states) #t #f)))
 
-(isFinal (list "s1" "s2") ("s1") )
+(isFinal "s3" (list "s1" "s2"))
 
 (provide (all-defined-out))
